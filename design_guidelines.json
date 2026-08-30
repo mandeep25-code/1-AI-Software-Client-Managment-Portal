@@ -1,0 +1,137 @@
+{
+  "theme_strategy": {
+    "mode": "dark",
+    "archetype": "SWISS & HIGH-CONTRAST + LUXURY B2B",
+    "description": "A highly professional, premium B2B SaaS look. Minimalist, brutalist data density mixed with deep, cinematic luxury aesthetics. High-contrast monochromatic foundations with electric accents for Gemini AI features. Eliminates the generic 'SaaS blue' and 'soft shadow' templates."
+  },
+  "typography": {
+    "rules": [
+      "No Inter, Roboto, Open Sans, or Lato for headings.",
+      "Headlines MUST use tracking-tight or tracking-tighter.",
+      "Hierarchy gap rule: Jump between heading and subheading must not exceed 2 Tailwind steps."
+    ],
+    "families": {
+      "headings": {
+        "font": "Outfit",
+        "fallback": "sans-serif",
+        "weights": [300, 500, 700],
+        "import_url": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap"
+      },
+      "body": {
+        "font": "Manrope",
+        "fallback": "sans-serif",
+        "weights": [400, 500, 600],
+        "import_url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap"
+      },
+      "mono_data": {
+        "font": "JetBrains Mono",
+        "fallback": "monospace",
+        "weights": [400, 500],
+        "import_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+      }
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter font-light",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-medium",
+      "h3": "text-xl sm:text-2xl font-medium",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-sm sm:text-base leading-relaxed text-zinc-400",
+      "overline": "text-xs tracking-[0.2em] uppercase text-zinc-500 font-bold"
+    }
+  },
+  "colors": {
+    "backgrounds": {
+      "app": "bg-[#050505]",
+      "sidebar": "bg-[#0A0A0A]",
+      "surface": "bg-[#121212]",
+      "surface_hover": "bg-[#1A1A1A]"
+    },
+    "borders": {
+      "default": "border-white/10",
+      "focus": "border-white/30"
+    },
+    "text": {
+      "primary": "text-white",
+      "secondary": "text-zinc-400",
+      "muted": "text-zinc-600"
+    },
+    "accents": {
+      "primary": "bg-[#E5E5E5] text-black",
+      "primary_hover": "bg-white text-black",
+      "ai_gemini": "bg-[#0055FF] text-white",
+      "ai_gemini_glow": "shadow-[0_0_15px_rgba(0,85,255,0.5)]",
+      "success": "text-[#22C55E] bg-[#22C55E]/10",
+      "warning": "text-[#F59E0B] bg-[#F59E0B]/10",
+      "danger": "text-[#EF4444] bg-[#EF4444]/10"
+    },
+    "forbidden_colors": ["#7351B7", "#1B93A4", "pure #000000 (tinted only)", "pure #808080"]
+  },
+  "visual_enhancers": {
+    "surfaces": {
+      "cards": "Flat solid background (`bg-[#121212]`), strict 1px subtle border (`border-white/10`), zero shadow. Sharp or max 4px radius.",
+      "glassmorphism": "Used ONLY for floating elements (AI Chat, Sticky Headers). `bg-black/60 backdrop-blur-2xl border border-white/10 shadow-2xl`.",
+      "kanban_lanes": "Subtle column background `bg-[#0A0A0A]` with visible grid lines `border-r border-white/5`.",
+      "grid_borders": "For data tables and feature grids, use border-collapse style with `border-b border-white/10`."
+    },
+    "interaction": {
+      "hover": "Explicitly set hover text colors. e.g., `hover:bg-white/5 hover:text-white`.",
+      "focus": "High contrast rings: `focus:ring-2 focus:ring-white/20 focus:outline-none`.",
+      "transitions": "Use specific properties, NO `transition-all`. e.g., `transition-colors duration-200`, `transition-transform duration-300 ease-out`."
+    }
+  },
+  "layouts_and_grids": {
+    "dashboard_density": "High Density Grid (Bento style). Base: `grid-cols-1 md:grid-cols-3 lg:grid-cols-4`. Tight gaps: `gap-4` or `gap-6`.",
+    "kanban": "Horizontal scrolling flex container, fixed width columns (e.g., `w-[320px]`). Direct children logic.",
+    "spacing": "Generous inside containers. Use `p-6` or `p-8` for dashboard cards. Mobile first `grid-cols-1`.",
+    "alignment": "Left-align dense content and forms. Center-align only empty states or specific hero moments."
+  },
+  "components": {
+    "buttons": "Sharp edges (`rounded-none` or `rounded-sm`). Primary buttons are high-contrast white/light-gray. AI buttons use the `ai_gemini` accent with an icon.",
+    "tables": "Shadcn based. Remove card wrapper, use full-width row borders (`border-b border-white/10`). Hover state on rows `hover:bg-white/[0.02]`.",
+    "kanban_cards": "Use raw div elements over Shadcn cards for better drag-and-drop structural control. Include priority tags and avatar clusters.",
+    "forms": "Strict Shadcn usage. `bg-[#050505] border-white/10 focus:border-white/30`. No native HTML inputs.",
+    "navigation": "Sidebar for Admin/Team (`w-64 border-r border-white/10`). Top navigation for Client Portal with Glassmorphism if overlapping content.",
+    "toasts": "Use `sonner` for notifications. Dark mode styled.",
+    "ai_features": "Use a specialized drawer or modal for Gemini interactions (Task generation, Email drafts). Apply `The Tracing Beam` concept to the border of AI containers to signal generation."
+  },
+  "accessibility": {
+    "contrast": "Ensure minimum 4.5:1 ratio. No transparent backgrounds over content.",
+    "testing": "All interactive and key informational elements MUST include a `data-testid` attribute (e.g., `data-testid=\"kanban-card-1\"`, `data-testid=\"generate-ai-btn\"`).",
+    "motion": "Respect `prefers-reduced-motion`. Add `aria-hidden=\"true\"` to purely decorative elements."
+  },
+  "media_and_icons": {
+    "icons": "Use `@phosphor-icons/react` for a premium, duotone or sharp technical look.",
+    "images": {
+      "team_avatars": [
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0JTIwaGVhZHNob3R8ZW58MHx8fHwxNzg4MDc0ODQ1fDA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1685760259914-ee8d2c92d2e0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0JTIwaGVhZHNob3R8ZW58MHx8fHwxNzg4MDc0ODQ1fDA&ixlib=rb-4.1.0&q=85",
+        "https://images.pexels.com/photos/37148308/pexels-photo-37148308.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      ],
+      "client_logos": [
+        "https://images.unsplash.com/photo-1761044590940-9e3205a60b92?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nbyUyMGJyYW5kJTIwbWluaW1hbGlzdHxlbnwwfHx8fDE3ODgwNzQ4NDV8MA&ixlib=rb-4.1.0&q=85",
+        "https://images.unsplash.com/photo-1769985090420-087bc0a62ba3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwzfHxjb21wYW55JTIwbG9nbyUyMGJyYW5kJTIwbWluaW1hbGlzdHxlbnwwfHx8fDE3ODgwNzQ4NDV8MA&ixlib=rb-4.1.0&q=85"
+      ],
+      "background_textures": [
+        "https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBvZmZpY2V8ZW58MHx8fHwxNzg4MDc0ODQ1fDA&ixlib=rb-4.1.0&q=85"
+      ]
+    },
+    "usage": "Use background_textures with `opacity-10` and `mix-blend-overlay` in Auth / Login pages for depth. Use team_avatars for Kanban task assignees. Use client_logos for the Client Management table."
+  },
+  "libraries": {
+    "mandatory": ["lucide-react", "sonner", "clsx", "tailwind-merge"],
+    "recommended": ["recharts", "framer-motion (for AI generation states and smooth page transitions)", "@hello-pangea/dnd (for Kanban drag-drop)"]
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "DO NOT use generic centered layouts or simplistic gradients.",
+    "Ensure high-contrast dark aesthetics without muddy grays.",
+    "Use layered design elements with z-index hierarchy and strict borders.",
+    "DO NOT apply universal transition (e.g., `transition: all`). Target specific properties.",
+    "DO NOT center align the app container. Align data to the left to support reading flow.",
+    "Avoid AI emoji characters (🤖🧠💭). Use `@phosphor-icons/react` or `lucide-react`.",
+    "Include `data-testid` on all buttons, links, inputs, and major layout sections.",
+    "Every page must have a visible navigation structure (Sidebar for Admin/Team, Top-nav or clean sidebar for Client).",
+    "Integrate Google Gemini API strictly via environment variables. Create clear UX states for 'Generating...' vs 'Complete' (e.g. animated tracing borders, skeletons).",
+    "Never use pure `#000000`. Use `#050505` or `#0A0A0A` for base, `#121212` for surfaces.",
+    "Do NOT use HTML `<select>` or `<input type=\"date\">`. Strictly use Shadcn components for complex interactions."
+  ]
+}
